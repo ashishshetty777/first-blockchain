@@ -1,7 +1,7 @@
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-
+import 'hardhat-gas-reporter';
 import '@nomiclabs/hardhat-waffle';
 import '@nomiclabs/hardhat-ethers';
 
