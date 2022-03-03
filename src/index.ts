@@ -25,15 +25,38 @@ async function getContract() {
   }
 
   // @ts-ignore
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const provider = new ethers.providers.Web3Provider(
+    // @ts-ignore
+    window.ethereum,
+  ).getSigner();
+
   const contract = new ethers.Contract(
     address,
-    ['function hello() public pure returns(string memory)'], // abi
+    [
+      'function count() public',
+      'function getCounter() public view returns (uint32)',
+    ], // abi
     provider,
   );
 
-  console.log('We have done it, time to call');
-  console.log(await contract.hello());
+  const el = document.createElement('div');
+  async function setCounter() {
+    el.innerHTML = await contract.getCounter();
+  }
+
+  setCounter();
+
+  const button = document.createElement('button');
+  button.innerText = 'increment';
+
+  button.onclick = async function () {
+    const tx = await contract.count();
+    await tx.wait();
+    setCounter();
+  };
+
+  document.body.appendChild(el);
+  document.body.appendChild(button);
 }
 
 getContract();

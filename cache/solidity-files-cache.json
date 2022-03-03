@@ -37,8 +37,8 @@
       ]
     },
     "/Users/ashish.shetty/PersonalWork/Blockchain/ashisheths/contracts/Counter.sol": {
-      "lastModificationDate": 1646308864552,
-      "contentHash": "9bff1a9a563c041988753bb536b1ad0e",
+      "lastModificationDate": 1646309746330,
+      "contentHash": "30b65dcc29e8ca6deb498b05e8d4aa5c",
       "sourceName": "contracts/Counter.sol",
       "solcConfig": {
         "version": "0.8.10",
