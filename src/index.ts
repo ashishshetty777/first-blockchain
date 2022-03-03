@@ -18,7 +18,7 @@ async function requestAccess(): Promise<boolean> {
 }
 
 async function getContract() {
-  const address = '0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0';
+  const address = process.env.CONTRACT_ADDRESS;
 
   if (!(await hasSigners()) && !(await requestAccess())) {
     console.log('You are in trouble, no one wants to play');
@@ -34,7 +34,6 @@ async function getContract() {
 
   console.log('We have done it, time to call');
   console.log(await contract.hello());
-  document.body.innerHTML = await contract.hello();
 }
 
 getContract();
